@@ -11,7 +11,7 @@ import time
 
 faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-def end_func(faceCascade, isPi, image,  rawCapture = ''):
+def place_frame(faceCascade, isPi, image,  rawCapture = ''):
     faces = faceCascade.detectMultiScale(
         gray,
         scaleFactor=1.1,
@@ -26,16 +26,13 @@ def end_func(faceCascade, isPi, image,  rawCapture = ''):
 
     #Display the resulting frame
     cv2.imshow('Frame', image)
-    if isPi == 1:
-        rawCapture.truncate(0)
-
 
 
 if isPi == 1:
     camera = PiCamera()
-    camera.resolution = (640, 480)
     camera.framerate = 32
-    rawCapture = PiRGBArray(camera, size=(640, 480))
+    camera.rotation = 180
+    rawCapture = PiRGBArray(camera)
 
     time.sleep(0.1)
     for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
@@ -44,7 +41,8 @@ if isPi == 1:
         image = frame.array
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        end_func(faceCascade, isPi, image, rawCapture)
+        place_frame(faceCascade, isPi, image, rawCapture)
+        rawCapture.truncate(0)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 else:
@@ -53,6 +51,6 @@ else:
         _, image = webcam.read()
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        end_func(faceCascade, isPi, image)
+        place_frame(faceCascade, isPi, image)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
