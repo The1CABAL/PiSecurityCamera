@@ -22,13 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classes\OldFaceDetector.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Classes\WebUI\FlaskPage.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\MotionDetector.py">
+    <Compile Include="Classes\Camera.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WebUI\VideoProcessing\Motion.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\GlobalVars.py">
@@ -50,6 +50,7 @@
   <ItemGroup>
     <Folder Include="Classes\" />
     <Folder Include="Classes\WebUI\" />
+    <Folder Include="Classes\WebUI\VideoProcessing\" />
     <Folder Include="Data\" />
     <Folder Include="Classes\WebUI\templates\" />
   </ItemGroup>
