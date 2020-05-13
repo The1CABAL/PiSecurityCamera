@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60b20cc5-61fb-4bf8-af76-562e290ac52f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PiSecurityCamera.py</StartupFile>
+    <StartupFile>Start_Server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Start_Server.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebUI\FlaskPage.py">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +87,7 @@
     <Content Include="WebUI\static\scripts\respond.js" />
     <Content Include="WebUI\static\scripts\respond.min.js" />
     <Content Include="WebUI\static\scripts\_references.js" />
+    <Content Include="WebUI\templates\config.html" />
     <Content Include="WebUI\templates\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="WebUI\templates\layout.html" />
