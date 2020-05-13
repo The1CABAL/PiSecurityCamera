@@ -45,7 +45,7 @@ class FaceDetector():
                 image = frame.array
                 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-                place_frame(faceCascade, isPi, image, gray, rawCapture)
+                self.place_frame(faceCascade, isPi, image, gray, rawCapture)
                 rawCapture.truncate(0)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
