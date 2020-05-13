@@ -1,8 +1,8 @@
 
 @ECHO OFF
-docker run -it -p 5000:5000 --name PiCamServer -d PiCamServer
+docker run -it -p 8000:8000 --name picamserver -d picamserver
 
-SET check = "docker inspect -f {{.State.Running}} PiCamServer"
+SET check = "docker inspect -f {{.State.Running}} picamserver"
 IF check == False (
 	EXIT
 )

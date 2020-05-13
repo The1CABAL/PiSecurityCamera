@@ -1,2 +1,2 @@
-REM docker stop PiCamServer
-REM docker rm PiCamServer
+REM docker stop picamserver
+REM docker rm picamserver

@@ -1,2 +1,2 @@
 @ECHO OFF
-docker build --tag PiCamServer .
+docker build --tag picamserver .
