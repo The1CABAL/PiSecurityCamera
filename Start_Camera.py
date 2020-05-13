@@ -6,21 +6,17 @@ try:
 except:
     cfg.isPi = 0
 
-from imutils.video import VideoStream
-import imagezmq
 import socket
 import time
+from imutils.video import VideoStream
+import imagezmq
 
 ip = input("Input Server IP Address: ")
-sender = imagezmq.ImageSender(connect_to="tcp://"+ip+":8000")
-rpiName = socket.gethostname()
-
-if cfg.isPi == 1:
-    vs = VideoStream(usePiCamera=True)
-else:
-    vs = VideoStream(src=0).start()
-time.sleep(2.0)
-
-while True:
-    frame = vs.read()
-    sender.send_image(rpiName, frame)
+sender = imagezmq.ImageSender(connect_to='tcp://'+ip+':5555')
+ 
+rpi_name = socket.gethostname() # send RPi hostname with each image
+picam = VideoStream(usePiCamera=True).start()
+time.sleep(2.0)  # allow camera sensor to warm up
+while True:  # send images as stream until Ctrl-C
+    image = picam.read()
+    sender.send_image(rpi_name, image)
