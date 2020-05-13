@@ -1,6 +1,6 @@
 #!/usr/bin LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1.2.0 python3
 
-from Classes.WebUI.FlaskPage import app, detect_motion
+from WebUI.FlaskPage import app, detect_motion
 import threading
 
 if __name__ == '__main__':

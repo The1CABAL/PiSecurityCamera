@@ -22,13 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classes\WebUI\FlaskPage.py">
+    <Compile Include="WebUI\FlaskPage.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Camera.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\WebUI\VideoProcessing\Motion.py">
+    <Compile Include="WebUI\VideoProcessing\Motion.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\GlobalVars.py">
@@ -49,14 +49,44 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="Classes\WebUI\" />
-    <Folder Include="Classes\WebUI\VideoProcessing\" />
+    <Folder Include="WebUI\" />
+    <Folder Include="WebUI\static\content\" />
+    <Folder Include="WebUI\static\fonts\" />
+    <Folder Include="WebUI\static\" />
+    <Folder Include="WebUI\static\scripts\" />
+    <Folder Include="WebUI\VideoProcessing\" />
     <Folder Include="Data\" />
-    <Folder Include="Classes\WebUI\templates\" />
+    <Folder Include="WebUI\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Classes\WebUI\templates\index.html" />
+    <Content Include="WebUI\static\content\bootstrap-form.css" />
+    <Content Include="WebUI\static\content\bootstrap.css" />
+    <Content Include="WebUI\static\content\bootstrap.min.css" />
+    <Content Include="WebUI\static\content\site.css" />
+    <Content Include="WebUI\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="WebUI\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="WebUI\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="WebUI\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="WebUI\static\scripts\bootstrap.js" />
+    <Content Include="WebUI\static\scripts\bootstrap.min.js" />
+    <Content Include="WebUI\static\scripts\Chart.bundle.js" />
+    <Content Include="WebUI\static\scripts\Chart.bundle.min.js" />
+    <Content Include="WebUI\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="WebUI\static\scripts\jquery-1.10.2.js" />
+    <Content Include="WebUI\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="WebUI\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="WebUI\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="WebUI\static\scripts\jquery.validate.js" />
+    <Content Include="WebUI\static\scripts\jquery.validate.min.js" />
+    <Content Include="WebUI\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="WebUI\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="WebUI\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="WebUI\static\scripts\respond.js" />
+    <Content Include="WebUI\static\scripts\respond.min.js" />
+    <Content Include="WebUI\static\scripts\_references.js" />
+    <Content Include="WebUI\templates\index.html" />
     <Content Include="requirements.txt" />
+    <Content Include="WebUI\templates\layout.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
