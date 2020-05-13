@@ -1,17 +1,19 @@
 
+import Data.GlobalVars as cfg
 try:
     from picamera.array import PiRGBArray
     from picamera import PiCamera
-    isPi = 1
+    cfg.isPi = 1
 except:
-    isPi = 0
+    cfg.isPi = 0
 import cv2
 import time
 
 class FaceDetector():
 
-    def __init__(self):
-        self.Detection_Main()
+    def __init__(vs):
+        self = FaceDetector
+        self.Detection_Main(self, vs)
 
     def place_frame(self, faceCascade, isPi, image, gray, rawCapture = ''):
         faces = faceCascade.detectMultiScale(
@@ -29,15 +31,12 @@ class FaceDetector():
         #Display the resulting frame
         cv2.imshow('Frame', image)
 
-    def Detection_Main(self):
+    def Detection_Main(self, vs):
 
         faceCascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-        if isPi == 1:
-            camera = PiCamera()
-            camera.framerate = 32
-            camera.rotation = 180
-            rawCapture = PiRGBArray(camera)
+        if cfg.isPi == 1:
+            vs
 
             time.sleep(0.1)
             for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
@@ -51,11 +50,11 @@ class FaceDetector():
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
         else:
-            webcam = cv2.VideoCapture(0)
+            vs
             while True:
-                _, image = webcam.read()
+                _, image = vs.read()
                 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-                self.place_frame(faceCascade, isPi, image, gray)
+                self.place_frame(faceCascade, cfg.isPi, image, gray)
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break

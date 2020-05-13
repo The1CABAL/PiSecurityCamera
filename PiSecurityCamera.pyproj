@@ -22,7 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classes\FaceDetector.py">
+    <Compile Include="Classes\OldFaceDetector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\WebUI\FlaskPage.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\MotionDetector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\GlobalVars.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PiSecurityCamera.py" />
@@ -40,8 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
+    <Folder Include="Classes\WebUI\" />
+    <Folder Include="Data\" />
+    <Folder Include="Classes\WebUI\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Classes\WebUI\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
