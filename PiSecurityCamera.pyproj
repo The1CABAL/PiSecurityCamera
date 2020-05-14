@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60b20cc5-61fb-4bf8-af76-562e290ac52f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Start_Server.py</StartupFile>
+    <StartupFile>PiSecurityCamera.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Start_Server.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test_rec.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="WebUI\FlaskPage.py">
@@ -65,6 +68,7 @@
     <Folder Include="WebUI\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WebUI\static\scripts\Config.js" />
     <Content Include="WebUI\static\content\bootstrap-form.css" />
     <Content Include="WebUI\static\content\bootstrap.css" />
     <Content Include="WebUI\static\content\bootstrap.min.css" />
