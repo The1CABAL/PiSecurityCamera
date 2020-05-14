@@ -1,23 +1,35 @@
 
-import base64
 import cv2
-import zmq
+import io
+import socket
+import struct
+import time
+import pickle
+import zlib
 
-context = zmq.Context()
-footage_socket = context.socket(zmq.PUB)
-footage_socket.connect('tcp://localhost:5555')
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect(('192.168.1.16', 8485))
+connection = client_socket.makefile('wb')
 
-camera = cv2.VideoCapture(0)  # init the camera
+cam = cv2.VideoCapture(0)
+
+cam.set(3, 320);
+cam.set(4, 240);
+
+img_counter = 0
+
+encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
 
 while True:
-    try:
-        grabbed, frame = camera.read()  # grab the current frame
-        frame = cv2.resize(frame, (640, 480))  # resize the frame
-        encoded, buffer = cv2.imencode('.jpg', frame)
-        jpg_as_text = base64.b64encode(buffer)
-        footage_socket.send(jpg_as_text)
+    ret, frame = cam.read()
+    result, frame = cv2.imencode('.jpg', frame, encode_param)
+#    data = zlib.compress(pickle.dumps(frame, 0))
+    data = pickle.dumps(frame, 0)
+    size = len(data)
 
-    except KeyboardInterrupt:
-        camera.release()
-        cv2.destroyAllWindows()
-        break
+
+    print("{}: {}".format(img_counter, size))
+    client_socket.sendall(struct.pack(">L", size) + data)
+    img_counter += 1
+
+cam.release()
