@@ -1,35 +1,65 @@
 
+from socket import *
 import cv2
-import io
-import socket
-import struct
-import time
-import pickle
-import zlib
+import numpy
+from getpass import getpass
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('192.168.1.16', 8485))
-connection = client_socket.makefile('wb')
+n = 25
 
-cam = cv2.VideoCapture(0)
+def recvall(conn, count):
+    buf = b''
+    while count:
+        newbuf = conn.recv(count)
+        if not newbuf:
+            return None
+        buf += newbuf
+        count -= len(newbuf)
 
-cam.set(3, 320);
-cam.set(4, 240);
+    return buf
 
-img_counter = 0
+try:
+    sock = socket() # Create a socket object
+    print('Hello')
+    ip = raw_input('Enter IP address of server: ')
+    port = input('Enter Port number of server: ')
+    print('==' * n)
+    sock.connect((ip, port))
+    
 
-encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
+    data = sock.recv(1024)
+    print(data)
+    ID = raw_input('Enter your ID: ')
+    passd = getpass('Enter yur password: ')
 
-while True:
-    ret, frame = cam.read()
-    result, frame = cv2.imencode('.jpg', frame, encode_param)
-#    data = zlib.compress(pickle.dumps(frame, 0))
-    data = pickle.dumps(frame, 0)
-    size = len(data)
+    print('==' * n)
+    
+    sock.send(ID+':'+passd)
 
+    data = sock.recv(1024)
+    if data == 'Denied':
+        print('Access Denied...')
+        exit()
 
-    print("{}: {}".format(img_counter, size))
-    client_socket.sendall(struct.pack(">L", size) + data)
-    img_counter += 1
+    while 1:
+        length = recvall(sock, 16)
+        if length == None:
+            break
+        
+        buf = recvall(sock, int(length))
+        data = numpy.fromstring(buf, dtype='uint8')
 
-cam.release()
+        decimg = cv2.imdecode(data, 1)
+        cv2.imshow('Client', decimg)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            sock.send('Quit')
+            break
+        else:
+            sock.send('OK')
+
+    sock.close()
+    cv2.destroyAllWindows()
+    
+except:
+    pass
+
+exit(1)
