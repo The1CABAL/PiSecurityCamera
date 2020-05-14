@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>PiSecurityCamera</Name>
     <RootNamespace>PiSecurityCamera</RootNamespace>
-    <InterpreterId>MSBuild|Devenv|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,10 +89,10 @@
     <Content Include="WebUI\templates\layout.html" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="Devenv\">
-      <Id>Devenv</Id>
+    <Interpreter Include="env\">
+      <Id>env</Id>
       <Version>3.7</Version>
-      <Description>Devenv (Python 3.7 (64-bit))</Description>
+      <Description>env (Python 3.7 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
