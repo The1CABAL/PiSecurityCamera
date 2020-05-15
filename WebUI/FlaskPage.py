@@ -9,8 +9,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-	return render_template("index.html")
-
+	cam_dict = SQL.get_cams()
+	return render_template(
+		"index.html",
+		dict_set = zip(cam_dict)
+		)
 
 @app.route("/video_feed")
 def video_feed():
@@ -20,7 +23,11 @@ def video_feed():
 
 @app.route("/config")
 def config():
-	return render_template("config.html")
+	cam_dict = SQL.get_cams()
+	return render_template(
+		"config.html",
+		dict_set = zip(cam_dict)
+		)
 
 @app.route("/submit_cams", methods = ['POST','GET'])
 def submit_cams():
