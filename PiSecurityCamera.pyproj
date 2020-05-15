@@ -29,6 +29,12 @@
     <Compile Include="Classes\Startup.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Start_Camera.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Start_Server_temp.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebUI\FlaskPage.py">
       <SubType>Code</SubType>
     </Compile>

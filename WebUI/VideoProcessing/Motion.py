@@ -46,7 +46,7 @@ def detect_motion(frameCount):
 		if cfg.isRemote == 0:
 			frame = vs.read()
 		elif cfg.isRemote == 1:
-			image_hub = imagezmq.ImageHub()
+			image_hub = imagezmq.ImageHub(open_port='tcp://127.0.0.1:5555')
 			rPi_name, image = image_hub.recv_image()
 
 		frame = imutils.resize(frame, width=400)

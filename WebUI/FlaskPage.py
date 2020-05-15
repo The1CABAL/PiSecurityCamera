@@ -3,7 +3,7 @@ import Data.GlobalVars as cfg
 from WebUI.VideoProcessing.Motion import *
 from Classes.SQLITE import SQLITE as SQL
 from flask import Flask, Response, render_template
-import argparse
+import sys
 
 app = Flask(__name__)
 
