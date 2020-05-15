@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60b20cc5-61fb-4bf8-af76-562e290ac52f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PiSecurityCamera.py</StartupFile>
+    <StartupFile>Start_Server_temp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -12,6 +12,7 @@
     <Name>PiSecurityCamera</Name>
     <RootNamespace>PiSecurityCamera</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,7 @@
     <Compile Include="Start_Camera.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Start_Server.py">
+    <Compile Include="Start_Server_temp.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test_rec.py">
