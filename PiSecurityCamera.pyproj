@@ -12,6 +12,7 @@
     <Name>PiSecurityCamera</Name>
     <RootNamespace>PiSecurityCamera</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,7 @@
     <Content Include="WebUI\static\scripts\bootstrap.min.js" />
     <Content Include="WebUI\static\scripts\Chart.bundle.js" />
     <Content Include="WebUI\static\scripts\Chart.bundle.min.js" />
+    <Content Include="WebUI\static\scripts\Index.js" />
     <Content Include="WebUI\static\scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="WebUI\static\scripts\jquery-1.10.2.js" />
     <Content Include="WebUI\static\scripts\jquery-1.10.2.min.js" />
@@ -82,6 +84,7 @@
     <Content Include="WebUI\static\scripts\modernizr-2.6.2.js" />
     <Content Include="WebUI\static\scripts\respond.js" />
     <Content Include="WebUI\static\scripts\respond.min.js" />
+    <Content Include="WebUI\static\scripts\ScrollToTop.js" />
     <Content Include="WebUI\static\scripts\_references.js" />
     <Content Include="WebUI\templates\config.html" />
     <Content Include="WebUI\templates\index.html" />
