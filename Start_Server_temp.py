@@ -1,12 +1,25 @@
 
+'''
+This File is here as a temporary workaround for getting the testing 
+environment working until we can find a way to reload the site once the 
+configurations are changed. 
+'''
+
 import Data.GlobalVars as cfg
 from WebUI.FlaskPage import app, detect_motion
 from Classes.Startup import SetUp, get_settings
 import threading
 
+import sqlite3
+
 if __name__ == '__main__':
 
 	SetUp()
+	conn = cfg.conn
+	c = conn.cursor()
+	c.execute('UPDATE Config SET KeyValue = 1 WHERE KeyName = "ApplicationId"')
+	conn.commit()
+	c.close()
 	AppId, SelfStream, config_ip, config_port = get_settings()
 
 	if AppId == '0':
