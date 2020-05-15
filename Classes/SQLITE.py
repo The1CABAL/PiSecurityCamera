@@ -27,6 +27,10 @@ class SQLITE():
 
         c.executemany('INSERT OR IGNORE INTO Config VALUES (?,?,?)', baseline_config)
 
+        conn.commit()
+        c.close()
+        conn.close()
+
 
     def get_config():
         config_dict = {}
@@ -41,3 +45,6 @@ class SQLITE():
             config_dict.update(add)
 
         return config_dict
+
+        c.close()
+        conn.close()
