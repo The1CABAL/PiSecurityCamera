@@ -13,7 +13,7 @@ import time
 
 # initialize the ImageSender object with the socket address of the
 # server
-sender = imagezmq.ImageSender(connect_to="tcp://192.168.1.16:5555")
+sender = imagezmq.ImageSender(connect_to="tcp://192.168.1.10:5555")
 
 # get the host name, initialize the video stream, and allow the
 # camera sensor to warmup
