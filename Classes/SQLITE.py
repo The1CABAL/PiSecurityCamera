@@ -1,4 +1,5 @@
 
+from flask import request
 import Data.GlobalVars as cfg
 import sqlite3
 import os
@@ -7,6 +8,7 @@ class SQLITE():
     def create_dbo(home):
 
         data_path = (home+'/database')
+        cfg.dataPath = data_path
         filename = 'PiCamData.sqlite3'
 
         os.makedirs(data_path, exist_ok=True)
@@ -46,20 +48,16 @@ class SQLITE():
     def insert_camera_ips():
         new_cams = []
         if request.method == 'POST':
-            Cameras = {
-                'CameraNameOne':'CameraIpOne'
-                }
 
-            for v in Cameras:
-                if not request.form[v]:
-                    pass
-                else:
-                    new_cams.append(str(request.form[v]), str(request.form[v]))
+            data = [request.form['CameraNameOne'], request.form['CameraIpOne']]
 
-            conn = cfg.conn
+            data_path = cfg.dataPath
+            filename = 'PiCamData.sqlite3'
+            conn = sqlite3.connect(data_path + filename)
             c = conn.cursor()
 
-            c.executemany('INSERT INTO Cameras (Name, IP) VALUES (?,?);', new_cams)
+            c.executemany('INSERT INTO Cameras (Name, IP) VALUES (?,?);', data)
 
             conn.commit()
             c.close()
+            conn.close()
