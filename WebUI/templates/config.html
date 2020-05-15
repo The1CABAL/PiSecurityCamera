@@ -8,22 +8,22 @@
 </head>
 <body>
 	<h1>Configuration</h1>
-	<form id="applicationIdForm">
+	<form action="{{ url_for('submit_cams')}}" method="post" name="config">
 		<div class="row">
 			<div class="col-lg-12">
-				<label>Is this Camera part of a series?</label>
+				<label>Are there more cameras to add to this server?</label>
 				<input id="applicationId" type="checkbox" onclick="return showForm()" />
 			</div>
 		</div>
 		<div id="form" style="display: none;">
 			<div class="row">
 				<div class="col-lg-12">
-					<label>Server IP Address : </label>
-					<input type="text" id="ipAddress" placeholder="10.0.0.0" />
+					<label>Camera Name: </label>
+					<input type="text" id="CameraNameOne" placeholder="FrontDoor" />
 				</div>
 				<div class="col-lg-12">
-					<label>Server Port: </label>
-					<input type="text" id="port" placeholder="5555" />
+					<label>CameraIp: </label>
+					<input type="text" id="CameraIpOne" placeholder="0.0.0.0" />
 				</div>
 				<input type="submit" value="Submit" />
 			</div>

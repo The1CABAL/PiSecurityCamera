@@ -1,6 +1,7 @@
 
 import Data.GlobalVars as cfg
 from WebUI.VideoProcessing.Motion import *
+from Classes.SQLITE import SQLITE as SQL
 from flask import Flask, Response, render_template
 import argparse
 
@@ -19,4 +20,9 @@ def video_feed():
 
 @app.route("/config")
 def config():
+	return render_template("config.html")
+
+@app.route("/submit_cams", methods = ['POST','GET'])
+def submit_cams():
+	SQL.insert_camera_ips()
 	return render_template("config.html")

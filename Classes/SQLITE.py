@@ -15,6 +15,8 @@ class SQLITE():
         cfg.conn = conn
         c = conn.cursor()
 
+        c.execute('CREATE TABLE IF NOT EXISTS Cameras (Name TEXT NOT NULL, IP TEXT NOT NULL, PRIMARY KEY (Name) ON CONFLICT REPLACE)')
+
         c.execute('CREATE TABLE IF NOT EXISTS Config (KeyName TEXT NOT NULL, KeyValue TEXT NOT NULL, Description TEXT NOT NULL, PRIMARY KEY (KeyName) ON CONFLICT REPLACE)')
 
         baseline_config = [
@@ -26,7 +28,6 @@ class SQLITE():
 
 
         c.executemany('INSERT OR IGNORE INTO Config VALUES (?,?,?)', baseline_config)
-
 
     def get_config():
         config_dict = {}
@@ -41,3 +42,24 @@ class SQLITE():
             config_dict.update(add)
 
         return config_dict
+
+    def insert_camera_ips():
+        new_cams = []
+        if request.method == 'POST':
+            Cameras = {
+                'CameraNameOne':'CameraIpOne'
+                }
+
+            for v in Cameras:
+                if not request.form[v]:
+                    pass
+                else:
+                    new_cams.append(str(request.form[v]), str(request.form[v]))
+
+            conn = cfg.conn
+            c = conn.cursor()
+
+            c.executemany('INSERT INTO Cameras (Name, IP) VALUES (?,?);', new_cams)
+
+            conn.commit()
+            c.close()
