@@ -53,14 +53,12 @@ class SQLITE():
         new_cams = []
         if request.method == 'POST':
 
-            data = [request.form['CameraNameOne'], request.form['CameraIpOne']]
-
             data_path = cfg.dataPath
             filename = 'PiCamData.sqlite3'
             conn = sqlite3.connect(data_path + filename)
             c = conn.cursor()
 
-            c.executemany('INSERT INTO Cameras (Name, IP) VALUES (?,?);', data)
+            c.execute("INSERT INTO Cameras (Name, IP) VALUES ('"+request.values['CameraNameOne'] + "','" + request.values['CameraIpOne']+"')")
 
             conn.commit()
             c.close()
