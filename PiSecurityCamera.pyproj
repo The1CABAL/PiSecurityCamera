@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>60b20cc5-61fb-4bf8-af76-562e290ac52f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Start_Camera.py</StartupFile>
+    <StartupFile>PiSecurityCamera.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
