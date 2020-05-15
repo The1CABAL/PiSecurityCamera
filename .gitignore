@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/databasePiCamData.sqlite3
+/databasePiCamData.sqlite3-journal

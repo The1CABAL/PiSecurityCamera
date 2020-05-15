@@ -22,6 +22,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\SQLITE.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Startup.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Start_Camera.py">
       <SubType>Code</SubType>
     </Compile>
