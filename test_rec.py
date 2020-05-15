@@ -7,18 +7,7 @@ import imutils
 import cv2
 
 # initialize the ImageHub object
-imageHub = imagezmq.ImageHub()
-
-# initialize the list of class labels MobileNet SSD was trained to
-# detect, then generate a set of bounding box colors for each class
-CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
-    "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-    "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
-    "sofa", "train", "tvmonitor"]
-
-# load our serialized model from disk
-print("[INFO] loading model...")
-#net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
+imageHub = imagezmq.ImageHub(open_port='tcp://127.0.0.1:5555')
 
 # initialize the consider set (class labels we care about and want
 # to count), the object count dictionary, and the frame  dictionary
@@ -68,11 +57,6 @@ while True:
     (h, w) = frame.shape[:2]
     blob = cv2.dnn.blobFromImage(cv2.resize(frame, (300, 300)),
         0.007843, (300, 300), 127.5)
-
-    # pass the blob through the network and obtain the detections and
-    # predictions
-    #net.setInput(blob)
-    #detections = net.forward()
 
     # reset the object count for each object in the CONSIDER set
     objCount = {obj: 0 for obj in CONSIDER}

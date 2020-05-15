@@ -2,7 +2,7 @@
 import Data.GlobalVars as cfg
 from WebUI.VideoProcessing.Motion import *
 from flask import Flask, Response, render_template
-import argparse
+import sys
 
 app = Flask(__name__)
 
@@ -20,3 +20,7 @@ def video_feed():
 @app.route("/config")
 def config():
 	return render_template("config.html")
+
+@app.route('/reload')
+def reload():
+	sys.exit(0)
