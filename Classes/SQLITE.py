@@ -29,7 +29,6 @@ class SQLITE():
 
         conn.commit()
         c.close()
-        conn.close()
 
 
     def get_config():
@@ -47,4 +46,3 @@ class SQLITE():
         return config_dict
 
         c.close()
-        conn.close()
