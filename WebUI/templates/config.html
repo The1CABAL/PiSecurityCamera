@@ -1,47 +1,42 @@
 ﻿{% extends "layout.html" %}
 
 {% block content %}
-
 <html>
 <head>
-	<title>Configuration</title>
+    <title>Configuration</title>
 </head>
 <body>
-	<h1>Configuration</h1>
-	<form action="{{ url_for('submit_cams')}}" method="post" name="config">
-		<div class="row">
-			<div class="col-lg-12">
-				<label>Are there more cameras to add to this server?</label>
-				<input id="applicationId" type="checkbox" onclick="return showForm()" />
-			</div>
-		</div>
-		<div id="form" style="display: none;">
-			<div class="row">
-				<div class="col-lg-12">
-					<label>Camera Name: </label>
-					<input type="text" id="CameraNameOne" name="CameraNameOne" placeholder="FrontDoor" />
-				</div>
-				<div class="col-lg-12">
-					<label>CameraIp: </label>
-					<input type="text" id="CameraIpOne" name="CameraIpOne" placeholder="0.0.0.0" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<label>Camera Name: </label>
-					<input type="text" id="CameraNameTwo" name="CameraNameTwo" placeholder="FrontDoor" />
-				</div>
-				<div class="col-lg-12">
-					<label>CameraIp: </label>
-					<input type="text" id="CameraIpTwo" name="CameraIpTwo" placeholder="0.0.0.0" />
-				</div>
-			</div>
-		</div>
-		<input type="submit" value="Submit" />
-	</form>
+    <h1>Configuration</h1>
+    <form action="{{ url_for('submit_cams')}}" method="post" name="config">
+        <div class="row">
+            <div class="col-lg-12">
+                <label>Are there more cameras to add to this server?</label>
+                <input id="applicationId" type="checkbox" onclick="return showForm()" />
+            </div>
+        </div>
+        <div class="formDiv">
+            <div id="form" style="display: none;">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label>Camera Name: </label>
+                        <input type="text" id="CameraNameOne" name="CameraNameOne" placeholder="FrontDoor" required />
+                    </div>
+                    <div class="col-lg-12">
+                        <label>Camera Ip: </label>
+                        <input type="text" id="CameraIpOne" name="CameraIpOne" placeholder="0.0.0.0" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" style="padding: 5px 5px 5px 5px">
+                    <input type="button" id="showCam" onclick="return addInput('form')" value="Add Another Camera" />
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
 </body>
 </html>
-
 <script src="/static/scripts/Config.js"></script>
 
 {% endblock %}
