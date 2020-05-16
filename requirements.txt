@@ -6,7 +6,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
 numpy==1.18.4
-opencv-python==4.2.0.34
+opencv-python
 pip==20.1
 pyzmq==19.0.1
 setuptools==46.2.0
