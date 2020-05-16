@@ -1,11 +1,16 @@
 
 import os
+import Data.GlobalVars as cfg
 from Classes.SQLITE import SQLITE as SQL
 
 
 def SetUp():
     home = os.getcwd()
     SQL.create_dbo(home)
+    os.chdir(home)
+    os.makedirs(home + '/recordings', exist_ok=True)
+    cfg.recordings = os.getcwd()
+    os.chdir(home)
 
 
 def get_settings():

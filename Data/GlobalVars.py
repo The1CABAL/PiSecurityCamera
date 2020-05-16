@@ -10,3 +10,6 @@ conn = ''
 
 global data_path
 data_path = ''
+
+global recordings
+recordings = ''
