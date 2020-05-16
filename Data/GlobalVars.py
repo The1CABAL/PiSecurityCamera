@@ -8,5 +8,8 @@ isRemote = 0
 global conn
 conn = ''
 
-global dataPath
-dataPath = ''
+global data_path
+data_path = ''
+
+global recordings
+recordings = ''

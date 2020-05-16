@@ -3,14 +3,18 @@ import Data.GlobalVars as cfg
 from WebUI.VideoProcessing.Motion import *
 from Classes.SQLITE import SQLITE as SQL
 from flask import Flask, Response, render_template
+import os
 import sys
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-	return render_template("index.html")
-
+	cam_dict = SQL.get_cams()
+	return render_template(
+		"index.html",
+		dict_set = zip(cam_dict)
+		)
 
 @app.route("/video_feed")
 def video_feed():
@@ -20,7 +24,16 @@ def video_feed():
 
 @app.route("/config")
 def config():
-	return render_template("config.html")
+	cam_dict = SQL.get_cams()
+	return render_template(
+		"config.html",
+		dict_set = zip(cam_dict)
+		)
+
+@app.route('/browser')
+def browse():
+    item_list = os.listdir(cfg.recordings + '/recordings')
+    return render_template('browse.html', item_list=item_list)
 
 @app.route("/submit_cams", methods = ['POST','GET'])
 def submit_cams():
