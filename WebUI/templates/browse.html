@@ -10,11 +10,43 @@
     <title></title>
 </head>
 <body>
-    <ul>
-        {% for item in item_list %}
-        <li><a href="/browser{{ urlFilePath }}/{{ item }}">{{ item }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <section id="header">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>File Browse</h1>
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="helpMenu">
+                    <p>Description for file browser</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>
+                    Browse files
+                </h4>
+            </div>
+            <div class="col-lg-12">
+                <p>Some additional site content placeholder</p>
+            </div>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul>
+                    {% for file in files %}
+                    <li><a href="{{ file }}">{{ file }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <button onclick="topFunction()" id="scrollTopBtn" class="scrollBtn " title="Go to top">Top</button>
+    </div>
 </body>
 </html>
 
