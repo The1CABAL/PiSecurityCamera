@@ -39,8 +39,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="fileBrowse">
-                    {% for item in item_list %}
-                    <li><a class="fileBrowseLink" href="/browser{{ urlFilePath }}/{{ item }}">{{ item }}</a></li>
+                    {% for file in files %}
+                    <li><a class="fileBrowseLink" href="{{ file }}">{{ file }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

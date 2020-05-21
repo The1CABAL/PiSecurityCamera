@@ -2,7 +2,7 @@
 import Data.GlobalVars as cfg
 from WebUI.VideoProcessing.Motion import *
 from Classes.SQLITE import SQLITE as SQL
-from flask import Flask, Response, render_template
+from flask import Flask, Response, render_template, abort
 import os
 import sys
 
@@ -30,10 +30,20 @@ def config():
 		dict_set = zip(cam_dict)
 		)
 
-@app.route('/browser')
-def browse():
-    item_list = os.listdir(cfg.recordings + '/recordings')
-    return render_template('browse.html', item_list=item_list)
+@app.route('/browser', defaults={'req_path': ''})
+@app.route('/<path:req_path>')
+def browse(req_path):
+	base_dir = cfg.recordings + '\\recordings'
+	abs_path = os.path.join(base_dir, req_path)
+
+	if not os.path.exists(abs_path):
+		return abort(404)
+
+	if os.path.isfile(abs_path):
+		return send_file(abs_path)
+
+	files = os.listdir(abs_path)
+	return render_template('browse.html', files=files)
 
 @app.route("/submit_cams", methods = ['POST','GET'])
 def submit_cams():
