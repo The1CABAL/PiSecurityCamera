@@ -13,7 +13,7 @@ def index():
 	cam_dict = SQL.get_cams()
 	return render_template(
 		"index.html",
-		dict_set = zip(cam_dict)
+		cams = cam_dict
 		)
 
 @app.route("/video_feed")

@@ -102,3 +102,181 @@ input[type="checkbox"].input-validation-error {
     .scrollBtn:hover {
         background-color: #555;
     }
+
+ul.fileBrowse {
+    list-style-image: url('images/iconfinder_Folder_132707.png');
+}
+
+a.fileBrowseLink {
+    color: black;
+}
+
+    a.fileBrowseLink:hover {
+        color: blue;
+    }
+
+select {
+    /* styling */
+    background-color: white;
+    border: thin solid #B3B3B3;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    /* reset */
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+    select.minimal {
+        background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+        select.minimal:focus {
+            background-image: linear-gradient(45deg, gray 50%, transparent 50%), linear-gradient(135deg, transparent 50%, gray 50%), linear-gradient(to right, #ccc, #ccc);
+            background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+            background-size: 5px 5px, 5px 5px, 1px 1.5em;
+            background-repeat: no-repeat;
+            border-color: #B3B3B3;
+            outline: 0;
+        }
+
+
+    select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+
+    input.formTextInput, select.formSelectInput {
+        width: auto;
+        max-width: 100%;
+        padding: 5px 15px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+input.formButton {
+    width: auto;
+    max-width: 50%;
+    background-color: #F8F8F8;
+    color: black;
+    padding: 5px 15px;
+    margin: 8px 0;
+    border: thin solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    input.formButton:hover {
+        background-color: #F0F0F0;
+    }
+
+.cbx {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+    .cbx:not(:last-child) {
+        margin-right: 6px;
+    }
+
+    .cbx:hover {
+        background: rgba(189, 189, 189,0.06);
+    }
+
+    .cbx span {
+        float: left;
+        vertical-align: middle;
+        transform: translate3d(0, 0, 0);
+    }
+
+        .cbx span:first-child {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            transform: scale(1);
+            border: 1px solid #cccfdb;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 1px rgba(219,219,219,0.05);
+        }
+
+            .cbx span:first-child svg {
+                position: absolute;
+                top: 3px;
+                left: 2px;
+                fill: none;
+                stroke: #fff;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 16px;
+                stroke-dashoffset: 16px;
+                transition: all 0.3s ease;
+                transition-delay: 0.1s;
+                transform: translate3d(0, 0, 0);
+            }
+
+        .cbx span:last-child {
+            padding-left: 8px;
+            line-height: 18px;
+        }
+
+    .cbx:hover span:first-child {
+        border-color: #70D4EC;
+    }
+
+.inp-cbx {
+    position: absolute;
+    visibility: hidden;
+}
+
+    .inp-cbx:checked + .cbx span:first-child {
+        background: #70D4EC;
+        border-color: #70D4EC;
+        animation: wave 0.4s ease;
+    }
+
+        .inp-cbx:checked + .cbx span:first-child svg {
+            stroke-dashoffset: 0;
+        }
+
+@-moz-keyframes wave {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-webkit-keyframes wave {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-o-keyframes wave {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes wave {
+    50% {
+        transform: scale(0.9);
+    }
+}
