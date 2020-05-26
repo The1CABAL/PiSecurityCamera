@@ -14,6 +14,10 @@ if __name__ == '__main__':
 	t.daemon = True
 	t.start()
 
+	from WebUI.VideoProcessing.Downloader import record
+
+	#record()
+
 	# start the flask app
 	app.run(host='0.0.0.0', port=8000, debug=True,
 		threaded=True, use_reloader=False)
