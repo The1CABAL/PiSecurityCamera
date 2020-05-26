@@ -43,7 +43,7 @@ def browse(req_path):
 		return send_file(abs_path)
 
 	files = os.listdir(abs_path)
-	return render_template('browse.html', files=files)
+	return render_template('browse.html', files=files, path=abs_path)
 
 @app.route("/submit_cams", methods = ['POST','GET'])
 def submit_cams():
