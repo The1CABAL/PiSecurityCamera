@@ -1,60 +1,67 @@
 ﻿{% extends "layout.html" %}
 
 {% block content %}
-
 <html>
 <head>
-	<title>Pi Video Surveillance</title>
+    <title>Pi Video Surveillance</title>
 </head>
 <body>
-	<div class="container">
-		<section id="header">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1>Page Title</h1>
-					<p>Page content</p>
-				</div>
-			</div>
-		</section>
-		<section id="cameras">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="helpMenu">
-						<p>Some description for cameras maybe...idk.</p>
-					</div>
-				</div>
-				<div class="col-lg-12">
-					<label>View all cameras or choose specific</label>
-					<select id="chooseCamera" onchange="return changeCam()">
-						<option value="0">All</option>
-						<option value="cam-1">Pi Video Surveillance</option>
-						<option value="cam-2">Pi Video Surveillance 2</option>
-					</select>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="card" id="cam-1">
-						<div class="container">
-							<h1 class="cardH1">Pi Video Surveillance</h1>
-							<hr />
-						</div>
-						<img class="card-img" src="http://localhost:8000/video_feed">
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="card" id="cam-2">
-						<div class="container">
-							<h1 class="cardH1">Pi Video Surveillance 2</h1>
-							<hr />
-						</div>
-						<img class="card-img" src="http://192.168.1.26:8000/video_feed">
-					</div>
-				</div>
-			</div>
-		</section>
-		<button onclick="topFunction()" id="scrollTopBtn" class="scrollBtn "title="Go to top">Top</button>
-	</div>
+    <div class="container">
+        <section id="header">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Page Title</h1>
+                </div>
+            </div>
+        </section>
+        <section id="cameras">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="helpMenu">
+                        <p>Description for home page cameras</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Cameras</h4>
+                </div>
+                <div class="col-lg-12">
+                    <p>Site content placeholder for home</p>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-lg-12">
+                    <label>View all cameras or choose specific</label>
+                    <select class="minimal" id="chooseCamera" onchange="return changeCam()">
+                        <option value="0">All</option>
+                        {% for name, url in cams.items() %}
+                        {% set camNum = 1 %}
+                        <option value="cam-{{camNum}}">{{name}}</option>
+                        {% set camNum = camNum + 1 %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                {% for name, url in cams.items() %}
+                {% set camNum = 1 %}
+                <div class="col-lg-6">
+                    <div class="card" id="cam-{{camNum}}">
+                        <div class="container">
+                            <h1 class="cardH1">{{name}}</h1>
+                            <hr />
+                        </div>
+                        <img class="card-img" src="http://{{url}}:8000/video_feed" />
+                    </div>
+                </div>
+                {% set camNum = camNum + 1 %}
+                {% endfor %}
+            </div>
+        </section>
+        <button onclick="topFunction()" id="scrollTopBtn" class="scrollBtn " title="Go to top">Top</button>
+    </div>
 </body>
 </html>
 

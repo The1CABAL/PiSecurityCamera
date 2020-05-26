@@ -13,6 +13,7 @@
     <RootNamespace>PiSecurityCamera</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,7 @@
     <Folder Include="Classes\" />
     <Folder Include="WebUI\" />
     <Folder Include="WebUI\static\content\" />
+    <Folder Include="WebUI\static\content\images\" />
     <Folder Include="WebUI\static\fonts\" />
     <Folder Include="WebUI\static\" />
     <Folder Include="WebUI\static\scripts\" />
@@ -58,6 +60,7 @@
     <Folder Include="WebUI\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="WebUI\static\content\images\iconfinder_Folder_132707.png" />
     <Content Include="WebUI\static\scripts\Config.js" />
     <Content Include="WebUI\static\content\bootstrap-form.css" />
     <Content Include="WebUI\static\content\bootstrap.css" />

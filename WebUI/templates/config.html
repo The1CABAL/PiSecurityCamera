@@ -6,35 +6,66 @@
     <title>Configuration</title>
 </head>
 <body>
-    <h1>Configuration</h1>
-    <form action="{{ url_for('submit_cams')}}" method="post" name="config">
-        <div class="row">
-            <div class="col-lg-12">
-                <label>Are there more cameras to add to this server?</label>
-                <input id="applicationId" type="checkbox" onclick="return showForm()" />
+    <div class="container">
+        <section id="header">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Configurations</h1>
+                </div>
             </div>
-        </div>
-        <div class="formDiv">
-            <div id="form" style="display: none;">
+        </section>
+        <section id="help">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="helpMenu">
+                        <p>Some description for configurations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="siteContent">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Site content placeholder for configurations</p>
+                </div>
+            </div>
+        </section>
+        <section id="addCameras">
+            <form action="{{ url_for('submit_cams')}}" method="post" name="config">
                 <div class="row">
                     <div class="col-lg-12">
-                        <label>Camera Name: </label>
-                        <input type="text" id="CameraNameOne" name="CameraNameOne" placeholder="FrontDoor" required />
-                    </div>
-                    <div class="col-lg-12">
-                        <label>Camera Ip: </label>
-                        <input type="text" id="CameraIpOne" name="CameraIpOne" placeholder="0.0.0.0" required />
+                        <input class="inp-cbx" id="applicationId" type="checkbox" onclick="return showForm()" />
+                        <label class="cbx" for="applicationId">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" /></svg>
+                            </span><span>Are there more cameras to add to this server?</span>
+                        </label>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12" style="padding: 5px 5px 5px 5px">
-                    <input type="button" id="showCam" onclick="return addInput('form')" value="Add Another Camera" />
+                <div class="formDiv">
+                    <div id="form" style="display: none;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label>Camera Name: </label>
+                                <input class="formTextInput" type="text" id="CameraNameOne" name="CameraName1" placeholder="FrontDoor" required />
+                            </div>
+                            <div class="col-lg-12">
+                                <label>Camera Ip: </label>
+                                <input class="formTextInput" type="text" id="CameraIpOne" name="CameraIp1" placeholder="0.0.0.0" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12" style="padding: 5px 5px 5px 5px">
+                            <input type="button" class="formButton" id="showCam" onclick="return addInput('form')" value="Add Another Camera" />
+                        </div>
+                    </div>
+                    <input id="addCamSubmit" class="formButton" type="submit" value="Submit" />
                 </div>
-            </div>
-        </div>
-        <input type="submit" value="Submit" />
-    </form>
+            </form>
+        </section>
+        <button onclick="topFunction()" id="scrollTopBtn" class="scrollBtn " title="Go to top">Top</button>
+    </div>
 </body>
 </html>
 <script src="/static/scripts/Config.js"></script>
