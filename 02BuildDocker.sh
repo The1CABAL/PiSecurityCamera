@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --tag picamserver .
+sudo docker build --tag picamserver .

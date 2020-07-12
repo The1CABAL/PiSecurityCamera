@@ -1,3 +1,3 @@
 #!/bin/sh
-#docker stop picamserver
-#docker rm picamserver
+#sudo docker stop picamserver
+#sudo docker rm picamserver
