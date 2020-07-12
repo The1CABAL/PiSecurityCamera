@@ -1,2 +1,2 @@
-@ECHO OFF
+#!/bin/sh
 docker build --tag picamserver .
